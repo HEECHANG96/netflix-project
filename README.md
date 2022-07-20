@@ -9,3 +9,4 @@
 
 3. Home에서 영화를 클릭하면 상세페이지로 넘어가서 포스터와 영화 상세내용들을 불러올 때 에러 발생
 * 새로운 api 정보를 받아오기 위해 movie_id를 입력했는데, api 오류가 발생함
+* movieAction에서 getMoviesDetail이라는 function을 만들어주고 거기에 movie_id를 적용해서 에러를 해결
