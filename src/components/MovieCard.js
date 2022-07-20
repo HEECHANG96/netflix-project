@@ -1,18 +1,33 @@
 import React from 'react';
 import { Badge } from 'react-bootstrap';
+import { useSelector } from 'react-redux/es/exports';
+import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({ item }) => {
+  const { genreList } = useSelector((state) => state.movie);
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate(`/movies/${item.id}`);
+  };
+
   return (
-    <div 
+    <div
+    onClick={goToDetail} 
     className="card"
-    style={{backgroundImage:"url(" + `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path}` + ")"
+    style={{backgroundImage:
+      "url(" + 
+      `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path}` + 
+      ")"
     }}
     >
     <div className="overlay">
         <h1>{item.title}</h1>
         <div>
             {item.genre_ids.map((id) => (
-            <Badge bg="danger">{id}</Badge>
+            <Badge bg="danger">
+              {genreList.find( item => item.id === id).name}
+            </Badge>
         ))}
         </div>
     

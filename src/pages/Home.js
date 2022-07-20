@@ -4,14 +4,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import Banner from "../components/Banner";
 import MovieSlide from '../components/MovieSlide';
 import ClipLoader from "react-spinners/ClipLoader";
+import { useParams } from 'react-router-dom';
+
+
+
+
 
 const Home = () => {
-
+ 
   const dispatch = useDispatch();
   const { popularMovies, topRatedMovies, upComingMovies, loading } = useSelector(
     (state) => state.movie
     );
-  console.log("home", popularMovies)
   
 
   useEffect( () => {
@@ -26,6 +30,7 @@ const Home = () => {
   if(loading) {
     return <ClipLoader color="#ffff" loading={loading} size={150} />
   }
+
   return (
     <div>
       <Banner movie={popularMovies.results[0]} />
