@@ -2,25 +2,24 @@ import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
-import { movieAction } from '../redux/actions/movieAction';
+import { detailAction } from '../redux/actions/detailAction';
 import { ClipLoader } from 'react-spinners';
+import Poster from '../components/Poster';
+
 
 const MovieDetail = () => {
   let { id } = useParams();
   
 
-  const { imageList, loading } = useSelector(
-    (state) => state.movie
+  const { popularMovies, topRatedMovies, upComingMovies, loading } = useSelector(
+    (state) => state.detail
     );
- 
+  console.log("DETAIL??? 123", popularMovies, topRatedMovies, upComingMovies,);
 
   const dispatch = useDispatch();
-  const getMoviesDetail = () => {
-    dispatch(movieAction.getMoviesDetail(id))
-  }
 
   useEffect( () => {
-    getMoviesDetail();
+   dispatch(detailAction.getMoviesDetail(id));
   }, []);
   
   if(loading) {
@@ -32,7 +31,7 @@ const MovieDetail = () => {
     <Container>
       <Row>
         <Col>
-          <img src={imageList?.img}/>
+          <Poster detail = {[popularMovies, topRatedMovies, upComingMovies]}/>
         </Col>
         <Col>
           <h1>ddd</h1>

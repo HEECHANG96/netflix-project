@@ -16,6 +16,8 @@ const Home = () => {
   const { popularMovies, topRatedMovies, upComingMovies, loading } = useSelector(
     (state) => state.movie
     );
+  console.log("popular", popularMovies);
+
   
 
   useEffect( () => {
