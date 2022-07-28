@@ -11,3 +11,4 @@
 * 새로운 api 정보를 받아오기 위해 movie_id를 입력했는데, api 오류가 발생함
 * movieAction에서 getMoviesDetail이라는 function을 만들어주고 거기에 movie_id를 적용해서 에러를 해결
 * redux movieAction 파일에서 함수를 따로 작성하는 것이 아닌 detailAction 파일을 만들어서 detail페이지 관련 action을 만들었다.
+* Home 페이지에서 영화를 클릭하면 그 영화의 이미지가 보이게 하는데 id값을 맞추는 작업이 잘 되지 않음
