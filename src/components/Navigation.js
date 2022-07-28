@@ -1,18 +1,21 @@
 import React from 'react';
 import { Navbar, Container, Form, Button, Nav, NavDropdown, FormControl } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
 
-  
+  let navigate = useNavigate();
+  const goToHome = () => {
+    navigate('/');
+  }
 
  
   return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container fluid>
             <Navbar.Brand href="#">
-                <img width={100} src="https://rogermooresmovienation.files.wordpress.com/2022/04/net.jpg" />
+                <img width={100} src="https://rogermooresmovienation.files.wordpress.com/2022/04/net.jpg" onClick={goToHome}/>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">

@@ -7,7 +7,7 @@ let initialState = {
     loading: true,
 };
 
-function movieReducer(state = initialState, action) {
+function detailReducer(state = initialState, action) {
     let { type, payload } = action;
     
     switch(type) {
@@ -33,4 +33,4 @@ function movieReducer(state = initialState, action) {
     }
 }
 
-export default movieReducer;
+export default detailReducer;

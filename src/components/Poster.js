@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Poster = ( {detail} ) => {
-
+const Poster = ( detail ) => {
+  console.log("???", detail);
   return (
     <div 
     className="banner"

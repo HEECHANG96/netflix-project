@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Banner from "../components/Banner";
 import MovieSlide from '../components/MovieSlide';
 import ClipLoader from "react-spinners/ClipLoader";
-import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -18,7 +18,10 @@ const Home = () => {
     );
   console.log("popular", popularMovies);
 
-  
+  let navigate = useNavigate();
+  const goToDetail=()=>{
+    navigate('/:id');
+  }
 
   useEffect( () => {
     dispatch(movieAction.getMovies());
@@ -37,11 +40,11 @@ const Home = () => {
     <div>
       <Banner movie={popularMovies.results[0]} />
       <h1>Popular Movie</h1>
-      <MovieSlide movies={popularMovies} />
+      <MovieSlide movies={popularMovies} onClick={goToDetail}/>
       <h1>Top rated Movie</h1>
-      <MovieSlide movies={topRatedMovies} />
+      <MovieSlide movies={topRatedMovies} onClick={goToDetail}/>
       <h1>Upcoming Movie</h1>
-      <MovieSlide movies={upComingMovies} />
+      <MovieSlide movies={upComingMovies} onClick={goToDetail}/>
     </div>
   )
 }
